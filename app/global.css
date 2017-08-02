@@ -1,0 +1,20 @@
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  /* font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  color: #4b4f5d; 
+  background: #ebeced;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+input[type="radio"] {
+  margin: 5px;
+}
+
+.button-blue {
+  background: #4f7eb8!important;
+}
