@@ -58,7 +58,7 @@ export const ProfileVisibilitySettings = ({ onChange, checkedValue }) => (
   </p>
 );
 
-export const RecentlyViewedSettings = ({ }) => (
+export const RecentlyViewedSettings = () => (
   <p>
     <p className="bold">Recently viewed</p>
     <p>Manage your fancy Manage your Fancy browsing history.</p>
