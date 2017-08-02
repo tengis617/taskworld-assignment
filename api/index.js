@@ -14,6 +14,27 @@ server.route({
     reply('hello');
   },
 });
+server.route({
+  method: 'POST',
+  path: '/api/preferences',
+  handler: async function (request, reply) {
+    reply('hello');
+  },
+});
+server.route({
+  method: 'UPDATE',
+  path: '/api/preferences',
+  handler: async function (request, reply) {
+    reply('hello');
+  },
+});
+server.route({
+  method: 'DELETE',
+  path: '/api/preferences',
+  handler: async function (request, reply) {
+    reply('hello');
+  },
+});
 
 server.start((err) => {
   if (err) {
