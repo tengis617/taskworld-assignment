@@ -13,7 +13,6 @@ import {
   RecentlyViewedSettings,
 } from '../components/PrivacySettings';
 
-
 import './UserPreferences.css';
 
 export default class UserPreferences extends Component {
@@ -78,6 +77,7 @@ export default class UserPreferences extends Component {
                 onChange={this.handleChange}
                 checkedValue={this.state.receiveMessagesFrom}
               />
+              
               <RecentlyViewedSettings />
             </Section>
             <Section header="Content">
