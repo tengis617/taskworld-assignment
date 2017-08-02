@@ -41,7 +41,6 @@ export default class UserPreferences extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    
   }
   handleChange(event) {
     const target = event.target;
