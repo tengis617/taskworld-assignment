@@ -10,7 +10,7 @@ Goal:
 Recreate the screenshot as closely as possible using free tools, web fonts (e.g. Google fonts) and font icons (e.g Font Awesome) on the web.
 
 ## Rules:
-1.	Use JavaScript (ES6/7) and Node.js 8.x. Use pure ES6/7 JavaScript as much as possible. Avoid using Lodash and jQuery. 
+1.	Use JavaScript (ES6/7) and Node.js 8.x. Use pure ES6/7 JavaScript as much as possible. Avoid using Lodash and jQuery.  
 2.	Build the page using React / InfernoJS components.  Focus on recreating the main form and it’s functionality.  You definitely get bonus points for recreating the top bar and left menu but it’s not strictly required.  It’s completely up to you if you use a bundler such as Webpack 2 or not. 
 3.	Do not worry about filling in all the data such as languages, time zones and currency into the select boxes. A small sample data set will do, e.g. 4 countries, 4 time zones and 4 currencies.
 
