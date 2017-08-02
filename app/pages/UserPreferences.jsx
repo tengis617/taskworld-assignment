@@ -12,6 +12,8 @@ import {
   ProfileVisibilitySettings,
   RecentlyViewedSettings,
 } from '../components/PrivacySettings';
+import CategoryListSettings from '../components/ContentSettings';
+import NotificationsSettings from '../components/NotificationsSettings';
 
 import './UserPreferences.css';
 
@@ -25,8 +27,8 @@ export default class UserPreferences extends Component {
       profileVisibility: 'private',
       receiveMessagesFrom: 'everyone',
       recentlyViewed: [],
-      autoAddToCategoryList: 'enabled',
-      SmsNotifications: 'enabled',
+      autoAddToCategoryList: 'disabled',
+      smsNotifications: 'disabled',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,9 +40,8 @@ export default class UserPreferences extends Component {
   // }
 
   handleSubmit(event) {
-    this.console.log('submitted!');
-    this.console.log(event);
     event.preventDefault();
+    
   }
   handleChange(event) {
     const target = event.target;
@@ -77,65 +78,26 @@ export default class UserPreferences extends Component {
                 onChange={this.handleChange}
                 checkedValue={this.state.receiveMessagesFrom}
               />
-              
               <RecentlyViewedSettings />
             </Section>
             <Section header="Content">
-              <p className="bold">Category lists</p>
-              <div className="row">
-                <div className="six columns">
-                  <label htmlFor="autoAddToCategoryListEnable">
-                    <input
-                      type="radio"
-                      name="autoAddToCategoryList"
-                      value="enable"
-                      id="autoAddToCategoryListDisable"
-                    />
-                    Enable</label>
-                </div>
-                <div className="six columns">
-                  <label htmlFor="autoAddToCategoryListDisable">
-                    <input
-                      type="radio"
-                      name="autoAddToCategoryList"
-                      value="disable"
-                      id="autoAddToCategoryListDisable"
-                    />
-                    Disable
-                  </label>
-                </div>
-              </div>
+              <CategoryListSettings
+                onChange={this.handleChange}
+                checkedValue={this.state.autoAddToCategoryList}
+              />
             </Section>
             <Section header="Notifications">
-              <p className="bold">SMS Notifications</p>
-              <p>Enable SMS notifications to send text message alert notifications
-            to your mobile phone for your purchased orders.</p>
-              <div className="row">
-                <div className="six columns">
-                  <label htmlFor="smsNotificationsEnable">
-                    <input
-                      type="radio"
-                      name="smsNotifications"
-                      value="enable"
-                      id="smsNotificationsDisable"
-                    />
-                    Enable</label>
-                </div>
-                <div className="six columns">
-                  <label htmlFor="smsNotificationsDisable">
-                    <input
-                      type="radio"
-                      name="smsNotifications"
-                      value="disable"
-                      id="smsNotificationsDisable"
-                    />
-                    Disable
-                  </label>
-                </div>
-              </div>
+              <NotificationsSettings
+                onChange={this.handleChange}
+                checkedValue={this.state.smsNotifications}  
+              />
             </Section>
             <Section>
-              <input type="submit" value="save preferences" className="button-primary u-pull-right" />
+              <input
+                type="submit"
+                value="save preferences"
+                className="button-primary u-pull-right"
+              />
             </Section>
           </form>
         </Tile>
