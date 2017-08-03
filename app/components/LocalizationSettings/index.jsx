@@ -3,7 +3,7 @@ import React from 'react';
 export const LanguageSettings = ({ selectedLanguage, onChange }) => {
   return (
     <div>
-      <p className="bold">Language</p>
+      <p className="bold section-label">Language</p>
       <select
         className="u-full-width"
         name="language"
@@ -15,7 +15,7 @@ export const LanguageSettings = ({ selectedLanguage, onChange }) => {
         <option value="KR">Korean</option>
         <option value="FR">French</option>
       </select>
-      <p>Interested in helping translate Fancy? Let us know.</p>
+      <p className="subtext">Interested in helping translate Fancy? <a href=""> Let us know.</a></p>
     </div>
   );
 };
@@ -23,7 +23,7 @@ export const LanguageSettings = ({ selectedLanguage, onChange }) => {
 export const TimeZoneSettings = ({ selectedTimeZone, onChange }) => {
   return (
     <div>
-      <p className="bold">Time Zone</p>
+      <p className="bold section-label">Time Zone</p>
       <select
         className="u-full-width"
         name="timeZone"
@@ -42,7 +42,7 @@ export const TimeZoneSettings = ({ selectedTimeZone, onChange }) => {
 export const CurrencySettings = ({ selectedCurrency, onChange }) => {
   return (
     <div>
-      <p className="bold">Currency</p>
+      <p className="bold section-label">Currency</p>
       <select
         className="u-full-width"
         name="currency"

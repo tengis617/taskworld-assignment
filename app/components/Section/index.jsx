@@ -7,9 +7,9 @@ export default function Section(p) {
     <div className="section">
       <div className="row">
         <div className="three columns">
-          <h5>
+          <h2 className="section-header">
             {p.header}
-          </h5>
+          </h2>
         </div>
         <div className="nine columns">
           {p.children}

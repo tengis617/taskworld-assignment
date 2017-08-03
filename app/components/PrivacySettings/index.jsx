@@ -2,7 +2,7 @@ import React from 'react';
 
 export const MessagesSettings = ({ onChange, checkedValue }) => (
   <p>
-    <p className="bold">Messages</p>
+    <p className="bold section-label">Messages</p>
     <p>Control who can send you messages.</p>
     <div onClick={onChange} >
       <input
@@ -32,8 +32,8 @@ export const MessagesSettings = ({ onChange, checkedValue }) => (
 
 export const ProfileVisibilitySettings = ({ onChange, checkedValue }) => (
   <p>
-    <p className="bold">Profile Visibility</p>
-    <p>Manage who can see your activity,
+    <p className="bold section-label">Profile Visibility</p>
+    <p className="subtext">Manage who can see your activity,
             things you fancy, your followers,
             people you follow or in anyone’s search results.
     </p>
@@ -60,8 +60,8 @@ export const ProfileVisibilitySettings = ({ onChange, checkedValue }) => (
 
 export const RecentlyViewedSettings = () => (
   <p>
-    <p className="bold">Recently viewed</p>
-    <p>Manage your fancy Manage your Fancy browsing history.</p>
+    <p className="bold section-label">Recently viewed</p>
+    <p className="subtext">Manage your fancy Manage your Fancy browsing history.</p>
     <a href="">Delete all items</a>
   </p>
 );
