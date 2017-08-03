@@ -21,24 +21,16 @@ export default class UserPreferences extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: 'EN',
-      currency: 'USD',
-      timeZone: '(UTC+2:00)',
-      profileVisibility: 'private',
-      receiveMessagesFrom: 'everyone',
-      recentlyViewed: [],
-      autoAddToCategoryList: 'disabled',
-      smsNotifications: 'disabled',
-      enableSaveButton: false,
+
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  // componentDidMount() {
-  //   fetch('/users/preferences')
-  //     .then(res => res.json())
-  //     .then(res => this.setState(res));
-  // }
+  componentDidMount() {
+    fetch('/api/preferences')
+      .then(res => res.json())
+      .then(res => this.setState(res));
+  }
 
 
   // TODO: make a post request to the server
@@ -47,6 +39,7 @@ export default class UserPreferences extends Component {
     event.preventDefault();
     console.log('submitted!');
   }
+
   handleChange(event) {
     const target = event.target;
     const name = target.name;
