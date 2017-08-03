@@ -2,3 +2,12 @@
   padding: 25px;
   border-bottom: 1px solid #ebecef;
 }
+
+.section-header {
+  font-size: 18px;
+  color: #6f727d;
+}
+
+.section-label {
+  margin-bottom: 5px;
+}
