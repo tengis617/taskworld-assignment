@@ -18,6 +18,12 @@ module.exports = {
     hot: true,
     contentBase: './dist',
     publicPath: '/',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        secure: false,
+      },
+    },
   },
   module: {
     rules: [
