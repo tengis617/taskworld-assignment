@@ -29,6 +29,7 @@ export default class UserPreferences extends Component {
       recentlyViewed: [],
       autoAddToCategoryList: 'disabled',
       smsNotifications: 'disabled',
+      enableSaveButton: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,8 +40,12 @@ export default class UserPreferences extends Component {
   //     .then(res => this.setState(res));
   // }
 
+
+  // TODO: make a post request to the server
+  // TODO: make button disabled if nothing changed
   handleSubmit(event) {
     event.preventDefault();
+    console.log('submitted!');
   }
   handleChange(event) {
     const target = event.target;
@@ -95,7 +100,8 @@ export default class UserPreferences extends Component {
               <input
                 type="submit"
                 value="save preferences"
-                className="button-primary u-pull-right"
+                className="button-primary u-pull-right "
+                disabled={!this.state.enableSaveButton}
               />
             </Section>
           </form>
