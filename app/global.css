@@ -18,3 +18,7 @@ input[type="radio"] {
 .button-blue {
   background: #4f7eb8!important;
 }
+
+.subtext {
+  color: #6f727d;
+}
