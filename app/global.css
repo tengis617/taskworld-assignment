@@ -1,24 +1,35 @@
-body {
-  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
-  line-height: 1.6;
-  font-weight: 400;
-  /* font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; */
-  color: #4b4f5d; 
+html, body {
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  color: #373d48;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif!important;
   background: #ebeced;
+}
+
+li > a {
+  color: #4978b3;
 }
 
 .bold {
   font-weight: bold;
 }
-
 input[type="radio"] {
   margin: 5px;
+}
+
+label {
+  font-size: 13px;
 }
 
 .button-blue {
   background: #4f7eb8!important;
 }
 
-.subtext {
-  color: #6f727d;
+small {
+  color: #9da1ab;
+  font-size: 13px;
+}
+
+.text-center {
+  text-align: center;
 }

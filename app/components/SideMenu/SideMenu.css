@@ -1,0 +1,23 @@
+.menu {
+  padding: 0px;
+}
+
+.menu-group {
+  padding: 10px;
+  border-bottom: 1px solid #ebecef;
+  margin: 0;
+}
+
+.menu-group > li > a {
+  color: #61687a;
+  padding: 0 10px;
+}
+
+.menu-group > li > a:hover {
+  color: #383d48;
+}
+
+.menu :last-child {
+  border-bottom: none;
+  margin-bottom:0;
+}
