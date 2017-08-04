@@ -6,7 +6,6 @@ export function RadioButton({ onChange, name, options, checkedValue }) {
   );
 }
 
-
 export function DropdownList({ onChange, options, checkedValue, name }) {
 
   const optionList = options.map((opt) => (
