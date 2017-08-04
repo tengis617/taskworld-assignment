@@ -4,14 +4,14 @@ import { DropdownList } from '../FormElements';
 export function LanguageSettings({ selectedLanguage, onChange }) {
   return (
     <div>
-      <p className="bold section-label">Language</p>
+      <label>Language</label>
       <DropdownList
         onChange={onChange}
         options={['English', 'German', 'Korean', 'French']}
         checkedValue={selectedLanguage}
         name="language"
       />
-      <p className="subtext">Interested in helping translate Fancy? <a href=""> Let us know.</a></p>
+      <small>Interested in helping translate Fancy? <a href=""> Let us know.</a></small>
     </div>
   );
 }
@@ -19,7 +19,7 @@ export function LanguageSettings({ selectedLanguage, onChange }) {
 export function TimeZoneSettings({ selectedTimeZone, onChange }) {
   return (
     <div>
-      <p className="bold section-label">Time Zone</p>
+      <label>Time Zone</label>
       <DropdownList
         name="timeZone"
         checkedValue={selectedTimeZone}
@@ -33,7 +33,7 @@ export function TimeZoneSettings({ selectedTimeZone, onChange }) {
 export function CurrencySettings({ selectedCurrency, onChange }) {
   return (
     <div>
-      <p className="bold section-label">Currency</p>
+      <label>Currency</label>
       <DropdownList
         name="currency"
         checkedValue={selectedCurrency}

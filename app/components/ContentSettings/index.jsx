@@ -4,8 +4,8 @@ import React from 'react';
 export default function CategoryListSettings({onChange, checkedValue }) {
   return (
     <div>
-      <p className="bold section-label">Category lists</p>
-      <p className="subtext">Automatically add Fancy'd items to the Category list</p>
+      <label>Category lists</label>
+      <small>Automatically add Fancy'd items to the Category list</small>
       <div onClick={onChange}>
         <input
           type="radio"

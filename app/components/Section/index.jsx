@@ -6,12 +6,12 @@ export default function Section(p) {
   return (
     <div className="section">
       <div className="row">
-        <div className="three columns">
-          <h2 className="section-header">
+        <div className="column column-25">
+          <h3 className="section-header">
             {p.header}
-          </h2>
+          </h3>
         </div>
-        <div className="nine columns">
+        <div className="column column-75">
           {p.children}
         </div>
       </div>

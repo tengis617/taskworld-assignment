@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UserPreferences from './pages/UserPreferences';
+import Settings from './pages/Settings';
+
 
 import './normalize.css';
-import './skeleton.css';
+import 'milligram';
 import './global.css';
 
+
 ReactDOM.render(
-  <UserPreferences />,
+  <Settings />,
   document.getElementById('root'),
 );

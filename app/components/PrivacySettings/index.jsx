@@ -2,8 +2,8 @@ import React from 'react';
 
 export const MessagesSettings = ({ onChange, checkedValue }) => (
   <p>
-    <p className="bold section-label">Messages</p>
-    <p>Control who can send you messages.</p>
+    <label>Messages</label>
+    <small>Control who can send you messages.</small>
     <div onClick={onChange} >
       <input
         type="radio"
@@ -32,11 +32,11 @@ export const MessagesSettings = ({ onChange, checkedValue }) => (
 
 export const ProfileVisibilitySettings = ({ onChange, checkedValue }) => (
   <p>
-    <p className="bold section-label">Profile Visibility</p>
-    <p className="subtext">Manage who can see your activity,
+    <label>Profile Visibility</label>
+    <small>Manage who can see your activity,
             things you fancy, your followers,
             people you follow or in anyone’s search results.
-    </p>
+    </small>
     <div onClick={onChange} >
       <input
         type="radio"
@@ -60,8 +60,8 @@ export const ProfileVisibilitySettings = ({ onChange, checkedValue }) => (
 
 export const RecentlyViewedSettings = () => (
   <p>
-    <p className="bold section-label">Recently viewed</p>
-    <p className="subtext">Manage your fancy Manage your Fancy browsing history.</p>
-    <a href="">Delete all items</a>
+    <label>Recently viewed</label>
+    <small>Manage your fancy Manage your Fancy browsing history.</small>
+    <p><a href="">Delete all items</a></p>
   </p>
 );
