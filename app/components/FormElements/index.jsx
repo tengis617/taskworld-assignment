@@ -1,6 +1,8 @@
 import React from 'react';
 
-export function RadioButton({ onChange, name, options, checkedValue }) {
+import './FormElements.css';
+
+export function RadioButton({ onChange, name, options, checkedValue, icon}) {
   return (
     <div>hello</div>
   );
@@ -13,7 +15,7 @@ export function DropdownList({ onChange, options, checkedValue, name }) {
   ));
   return (
     <select
-      className="u-full-width"
+      className="fancy-select"
       name={name}
       value={checkedValue}
       onChange={onChange}

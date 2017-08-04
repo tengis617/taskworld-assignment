@@ -40,10 +40,10 @@ export default class UserPreferences extends Component {
       <Layout>
         <div className="container">
           <div className="row">
-            <div className="column column-25">
+            <div className="column column-20 column-collapse column-offset-10">
               <SideMenu />
             </div>
-            <div className="column column-75">
+            <div className="column column-50 column-collapse">
               <Preferences
                 preferences={this.state}
                 handleChange={this.handleChange}
