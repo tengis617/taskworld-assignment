@@ -1,16 +1,59 @@
 import Hapi from 'hapi';
-import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
+import connect from './mongodb';
+import { UserPreference } from './models';
 
-const url = 'mongodb://localhost:27017/test';
+const url = 'mongodb://localhost:27017/';
 
-MongoClient.connect(url, function(err, db) {
-  db.close();
+
+const testuser = new UserPreference({
+  sessionId: 'test',
+  language: 'German',
+  currency: 'USD',
+  timeZone: '(UTC+2:00)',
+  profileVisibility: 'private',
+  receiveMessagesFrom: 'everyone',
+  recentlyViewed: [],
+  autoAddToCategoryList: 'disabled',
+  smsNotifications: 'disabled',
+  enableSaveButton: false,
 });
+
+// testuser.save((err, user) => {
+//   if (err) return (console.log(err));
+// });
+
+UserPreference.find((err, up) => {
+  if (err) return console.error(err);
+  console.log(up);
+});
+
+connect(url);
+const db = mongoose.connection;
+// mongodb error
+db.on('error', console.error.bind(console, 'connection error:'));
+
+// mongodb connection open
+db.once('open', () => {
+  console.log('Mongodb connected');
+});
+
+
 const server = new Hapi.Server();
 
 server.connection({
   host: 'localhost',
   port: 8000,
+});
+
+
+server.state('sessionId', {
+  ttl: null,
+  isSecure: true,
+  isHttpOnly: true,
+  encoding: 'base64json',
+  clearInvalid: false,
+  strictHeader: true,
 });
 
 server.route({
@@ -27,9 +70,10 @@ server.route({
       autoAddToCategoryList: 'disabled',
       smsNotifications: 'disabled',
       enableSaveButton: false,
-    });
+    }).state('sessionId', { firstVisit: false });
   },
 });
+
 server.route({
   method: 'POST',
   path: '/api/preferences',
@@ -56,5 +100,5 @@ server.start((err) => {
   if (err) {
     throw err;
   }
-  console.log('Server running at: ', server.info.uri);
+  console.info('Server running at: ', server.info.uri);
 });
