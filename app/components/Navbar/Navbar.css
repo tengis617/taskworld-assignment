@@ -19,8 +19,39 @@
   height: 30px!important;
 }
 
-/* @media (max-width: 720px) {
-  .search-area {
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar li {
+  float: left;
+  margin-bottom: 0;
+}
+
+.navbar li a {
+  display: block;
+  text-align: center;
+  padding: 7.5px 10px;
+  text-decoration: none;
+  color: #92979d;
+  font-weight: bold;
+}
+.navbar li a:hover {
+}
+.navbar li a i {
+  font-size: 20px;
+}
+
+.nav-right {
+  float:right;
+}
+
+ @media (max-width: 720px) {
+   /* cleaner */
+  .search-area, .nav-area {
     display: none!important;
   }
-} */
+}

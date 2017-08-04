@@ -1,16 +1,16 @@
 .menu {
-  padding: 0px;
+  padding: 0 15px;
 }
 
 .menu-group {
-  padding: 10px;
+  padding: 10px 0px;
   border-bottom: 1px solid #ebecef;
   margin: 0;
 }
 
 .menu-group > li > a {
   color: #61687a;
-  padding: 0 10px;
+  padding: 0px;
 }
 
 .menu-group > li > a:hover {
@@ -20,4 +20,44 @@
 .menu :last-child {
   border-bottom: none;
   margin-bottom:0;
+}
+
+.fa-user-circle-o {
+  margin-right: 7px;
+  margin-left: -1px;
+}
+
+.fa-file-text-o{
+  margin-right: 8px;
+}
+
+.fa-lock {
+  margin-right: 8px;
+  margin-left: 2px;
+}
+
+.fa-envelope-o {
+  margin-right: 5px;
+}
+.fa-th-large {
+  margin-right: 5px;
+  margin-left: 1px;
+}
+
+.fa-list-alt {
+  margin-right: 4px;
+  margin-left: 1px
+}
+.fa-credit-card {
+  margin-right: 3px;
+  margin-left: 1px;
+}
+
+.fa-truck {
+  margin-right: 4px;
+  margin-left: 1px;
+}
+
+.fa-handshake-o {
+  margin-right: 1px;
 }

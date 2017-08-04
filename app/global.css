@@ -6,9 +6,16 @@ html, body {
   background: #ebeced;
 }
 
-li > a {
+a {
   color: #4978b3;
 }
+
+a:hover {
+  /* just a random darker color for hover */
+  color:#3967a0;
+}
+
+
 
 .bold {
   font-weight: bold;
@@ -18,7 +25,12 @@ input[type="radio"] {
 }
 
 label {
+  color: #4f535e;
   font-size: 13px;
+  margin-bottom: 5px;
+}
+p {
+  margin-bottom: 5px;
 }
 
 .button-blue {
@@ -32,4 +44,28 @@ small {
 
 .text-center {
   text-align: center;
+}
+
+/* 
+  custom css to fix flexbox issues with milligram. 
+  NOTE: this was done for this assignment specifically and will not work if the column size is changed
+*/
+
+@media (max-width: 40rem) {
+  .row .column.column-20.column-offset-10.column-collapse, .column.column-50.column-collapse {
+    margin-bottom: inherit;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 70rem) {
+  .row .column.column-offset-10 {
+    margin-left: 0;
+  }
+  .row .column.column-50 {
+    max-width: 100%;
+    flex: 0 0 80%;
+  }
 }
