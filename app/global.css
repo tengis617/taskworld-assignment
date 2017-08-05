@@ -5,25 +5,28 @@ html, body {
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif!important;
   background: #ebeced;
 }
-
 a {
   color: #4978b3;
 }
-
 a:hover {
   /* just a random darker color for hover */
   color:#3967a0;
 }
 
-
-
-.bold {
-  font-weight: bold;
+li a:hover {
+  color: #383d48;
+}
+input.fancy-button {
+  background-color: #4f7eb8;
+  border: 1px solid #4b77ad;
+  font-size: .8rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  padding: 0 1.5rem;
 }
 input[type="radio"] {
   margin: 5px;
 }
-
 label {
   color: #4f535e;
   font-size: 13px;
@@ -32,16 +35,16 @@ label {
 p {
   margin-bottom: 5px;
 }
-
-.button-blue {
-  background: #4f7eb8!important;
-}
-
 small {
   color: #9da1ab;
   font-size: 13px;
 }
-
+.bold {
+  font-weight: bold;
+}
+.button-blue {
+  background: #4f7eb8!important;
+}
 .text-center {
   text-align: center;
 }

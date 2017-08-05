@@ -12,3 +12,13 @@
   /* to cancel out milligram default color */
   border-color: #d1d1d1;
 }
+
+.radio-label {
+  display: inline-block;
+  padding-right: 10px;
+  font-weight: normal!important;
+}
+
+i.fa.fa-caret-down {
+  font-size: 13px;
+}

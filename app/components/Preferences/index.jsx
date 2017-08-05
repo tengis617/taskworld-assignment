@@ -8,11 +8,18 @@ export const CategoryListSettings = ({ onChange, checkedValue }) => {
     <div>
       <label>Category lists</label>
       <small>Automatically add Fancy'd items to the Category list</small>
-      <div onClick={onChange}>
-        <input
+      <div >
+        <RadioButton
+          onChange={onChange}
+          checkedValue={checkedValue}
+          name="autoAddToCategoryList"
+          options={['enabled', 'disabled']}
+        />
+        {/* <input
           type="radio"
           name="autoAddToCategoryList"
           value="enabled"
+          onClick={onChange}
           checked={checkedValue === 'enabled'}
         />
         Enable
@@ -20,13 +27,15 @@ export const CategoryListSettings = ({ onChange, checkedValue }) => {
           type="radio"
           name="autoAddToCategoryList"
           value="disabled"
+          onClick={onChange}
           checked={checkedValue === 'disabled'}
         />
-        Disable
+        Disable */}
       </div>
     </div>
   );
-}
+};
+
 export const LanguageSettings = ({ selectedLanguage, onChange }) => {
   return (
     <div>
@@ -44,7 +53,7 @@ export const LanguageSettings = ({ selectedLanguage, onChange }) => {
       </p>
     </div>
   );
-}
+};
 
 export const TimeZoneSettings = ({ selectedTimeZone, onChange }) => {
   return (
@@ -131,7 +140,7 @@ export const MessagesSettings = ({ onChange, checkedValue }) => (
         value="noOne"
         checked={checkedValue === 'noOne'}
       />
-      No one
+      <i className="fa fa-lock" /> No one
     </div>
   </p>
 );
@@ -143,23 +152,25 @@ export const ProfileVisibilitySettings = ({ onChange, checkedValue }) => (
             things you fancy, your followers,
             people you follow or in anyone’s search results.
     </small>
-    <div onClick={onChange} >
+    <div>
       <input
         type="radio"
         name="profileVisibility"
         value="everyone"
         id="profileVisibilityEveryone"
+        onClick={onChange}
         checked={checkedValue === 'everyone'}
       />
-          Everyone
+      Everyone
       <input
         type="radio"
         name="profileVisibility"
         value="private"
         id="profileVisibilityPrivate"
+        onClick={onChange}
         checked={checkedValue === 'private'}
       />
-          Private
+      <i className="fa fa-lock" /> Private
     </div>
   </p>
 );
@@ -216,7 +227,7 @@ export default function Preferences({ preferences, handleSubmit, handleChange })
           <input
             type="submit"
             value="save preferences"
-            className="float-right"
+            className="float-right fancy-button"
           />
         </Section>
       </form>

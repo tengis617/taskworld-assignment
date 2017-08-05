@@ -2,9 +2,22 @@ import React from 'react';
 
 import './FormElements.css';
 
-export function RadioButton({ onChange, name, options, checkedValue, icon}) {
+export function RadioButton({ onChange, name, options, checkedValue, icon }) {
+  const radioList = options.map(opt => (
+    <label className="radio-label">
+      <input
+        type="radio"
+        name={name}
+        value={opt}
+        onClick={onChange}
+        checked={checkedValue === opt}
+      /> {opt}
+    </label>
+  ));
   return (
-    <div>hello</div>
+    <div>
+      {radioList}
+    </div>
   );
 }
 

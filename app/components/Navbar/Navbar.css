@@ -17,6 +17,7 @@
   background-color: #f2f2f2!important;
   width: 250px!important;
   height: 30px!important;
+  float: right;
 }
 
 .navbar ul {

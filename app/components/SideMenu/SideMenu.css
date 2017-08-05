@@ -22,42 +22,42 @@
   margin-bottom:0;
 }
 
-.fa-user-circle-o {
+a .fa-user-circle-o {
   margin-right: 7px;
   margin-left: -1px;
 }
 
-.fa-file-text-o{
+a .fa-file-text-o{
   margin-right: 8px;
 }
 
-.fa-lock {
+a .fa-lock {
   margin-right: 8px;
   margin-left: 2px;
 }
 
-.fa-envelope-o {
+a .fa-envelope-o {
   margin-right: 5px;
 }
-.fa-th-large {
+a .fa-th-large {
   margin-right: 5px;
   margin-left: 1px;
 }
 
-.fa-list-alt {
+a .fa-list-alt {
   margin-right: 4px;
   margin-left: 1px
 }
-.fa-credit-card {
+a .fa-credit-card {
   margin-right: 3px;
   margin-left: 1px;
 }
 
-.fa-truck {
+a .fa-truck {
   margin-right: 4px;
   margin-left: 1px;
 }
 
-.fa-handshake-o {
+a .fa-handshake-o {
   margin-right: 1px;
 }
