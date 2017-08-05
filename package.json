@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --open",
     "watch": "webpack --watch",
     "build": "webpack",
-    "api": "nodemon api/index.js --exec babel-node"
+    "api": "nodemon api/server.js --exec babel-node"
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
