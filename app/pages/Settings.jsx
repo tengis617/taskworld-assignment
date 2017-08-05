@@ -15,7 +15,7 @@ export default class UserPreferences extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    fetch('/api/preferences')
+    fetch('/api/preferences', { credentials: 'same-origin' })
       .then(res => res.json())
       .then(res => this.setState(res));
   }
