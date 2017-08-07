@@ -1,3 +1,10 @@
+# QUICK START
+
+1. yarn install && yarn build
+2. yarn api to run server
+3. yar start to run client
+
+
 # User Preferences Form with simple CRUD backend
 
 ## Assignment:
