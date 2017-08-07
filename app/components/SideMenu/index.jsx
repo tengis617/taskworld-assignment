@@ -9,7 +9,7 @@ export default function SideMenu() {
       <div className="menu">
         <dl className="menu-group">
           <li><a href=""><i className="fa fa-user-circle-o" /> Edit Profile</a></li>
-          <li><a href="/"><i className="fa fa-file-text-o" /> Preferences</a></li>
+          <li className="active"><a href="/"><i className="fa fa-file-text-o" /> Preferences</a></li>
           <li><a href=""><i className="fa fa-lock" /> Password</a></li>
           <li><a href=""><i className="fa fa-envelope-o" /> Notifications</a></li>
           <li><a href=""><i className="fa fa-th-large" /> Connected Accounts</a></li>

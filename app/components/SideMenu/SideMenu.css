@@ -1,19 +1,24 @@
-.menu {
-  padding: 0 15px;
-}
-
 .menu-group {
   padding: 10px 0px;
   border-bottom: 1px solid #ebecef;
   margin: 0;
 }
 
-.menu-group > li > a {
+.menu-group li a {
   color: #61687a;
   padding: 0px;
 }
 
-.menu-group > li > a:hover {
+.menu li {
+  padding: 5px 15px;
+  margin-bottom: 0;
+}
+
+.menu li.active {
+  background-color: #f2f2f2;
+}
+
+.menu-group li a:hover {
   color: #383d48;
 }
 
