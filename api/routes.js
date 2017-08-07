@@ -44,7 +44,7 @@ const routes = [
       const cookie = request.state.session;
       const newPreference = request.payload;
       if (!cookie) {
-        reply('unauthorized').code(401);
+        reply('unauthorized: no cookie ').code(401);
       } else {
         const userPreference = await UserPreference.findOneAndUpdate(
           { userId: cookie.userId },
@@ -54,7 +54,7 @@ const routes = [
         if (userPreference) {
           reply(userPreference).code(201);
         } else {
-          reply('error. unable to find preference').code(400);
+          reply('error: unable to find preference').code(400);
         }
       }
     },
