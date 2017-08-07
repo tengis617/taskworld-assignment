@@ -3,87 +3,68 @@ import Section from '../Section';
 import Tile from '../Tile';
 import { DropdownList, RadioButton } from '../FormElements';
 
-export const CategoryListSettings = ({ onChange, checkedValue }) => {
-  return (
-    <div>
-      <label>Category lists</label>
-      <small>Automatically add Fancy'd items to the Category list</small>
-      <div >
-        <RadioButton
-          onChange={onChange}
-          checkedValue={checkedValue}
-          name="autoAddToCategoryList"
-          options={['enabled', 'disabled']}
-        />
-        {/* <input
-          type="radio"
-          name="autoAddToCategoryList"
-          value="enabled"
-          onClick={onChange}
-          checked={checkedValue === 'enabled'}
-        />
-        Enable
-        <input
-          type="radio"
-          name="autoAddToCategoryList"
-          value="disabled"
-          onClick={onChange}
-          checked={checkedValue === 'disabled'}
-        />
-        Disable */}
-      </div>
-    </div>
-  );
-};
-
-export const LanguageSettings = ({ selectedLanguage, onChange }) => {
-  return (
-    <div>
-      <label>Language</label>
-      <DropdownList
+export const CategoryListSettings = ({ onChange, checkedValue }) => (
+  <div>
+    <label>Category lists</label>
+    <small>Automatically add Fancy'd items to the Category list</small>
+    <div >
+      <RadioButton
         onChange={onChange}
-        options={['English', 'German', 'Korean', 'French']}
-        checkedValue={selectedLanguage}
-        name="language"
+        checkedValue={checkedValue}
+        name="autoAddToCategoryList"
+        options={[{ value: 'enabled', text: 'Enabled' }, { value: 'disabled', text: 'Disabled' }]}
       />
-      <p>
-        <small>
+    </div>
+  </div>
+);
+
+export const LanguageSettings = ({ selectedLanguage, onChange }) => (
+  <div>
+    <p className="bold section-label">Language</p>
+    <DropdownList
+      onChange={onChange}
+      options={['English', 'German', 'Korean', 'French']}
+      checkedValue={selectedLanguage}
+      name="language"
+    />
+    <p>
+      <small>
           Interested in helping translate Fancy? <a href="/"> Let us know.</a>
-        </small>
-      </p>
-    </div>
-  );
-};
+      </small>
+    </p>
+  </div>
+);
 
-export const TimeZoneSettings = ({ selectedTimeZone, onChange }) => {
-  return (
-    <div>
-      <label>Time Zone</label>
-      <DropdownList
-        name="timeZone"
-        checkedValue={selectedTimeZone}
-        onChange={onChange}
-        options={['(UTC+2:00)', '(UTC+3:00)', '(UTC+4:00)', '(UTC+5:00)']}
-      />
-    </div>
-  );
-};
+export const TimeZoneSettings = ({ selectedTimeZone, onChange }) => (
+  <div>
+    <p className="bold section-label">Time Zone</p>
+    <DropdownList
+      name="timeZone"
+      checkedValue={selectedTimeZone}
+      onChange={onChange}
+      options={['(UTC+2:00)', '(UTC+3:00)', '(UTC+4:00)', '(UTC+5:00)']}
+    />
+  </div>
+);
 
-export const CurrencySettings = ({ selectedCurrency, onChange }) => {
-  return (
-    <div>
-      <label>Currency</label>
-      <DropdownList
-        name="currency"
-        checkedValue={selectedCurrency}
-        onChange={onChange}
-        options={['USD', 'KRW', 'EUR', 'GBP']}
-      />
-    </div>
-  );
-};
+export const CurrencySettings = ({ selectedCurrency, onChange }) => (
+  <div>
+    <p className="bold section-label">Currency</p>
+    <DropdownList
+      name="currency"
+      checkedValue={selectedCurrency}
+      onChange={onChange}
+      options={['USD', 'KRW', 'EUR', 'GBP']}
+    />
+  </div>
+);
 
 export const NotificationSettings = ({ onChange, checkedValue }) => {
+  const options = [
+    { text: 'Enabled', value: 'enabled' },
+    { text: 'Disabled', value: 'disabled' },
+  ];
+
   return (
     <div>
       <p className="bold section-label">SMS Notifications</p>
@@ -94,93 +75,78 @@ export const NotificationSettings = ({ onChange, checkedValue }) => {
         </small>
       </p>
       <div>
-        <input
-          type="radio"
+        <RadioButton
+          onChange={onChange}
+          checkedValue={checkedValue}
           name="smsNotifications"
-          value="enabled"
-          onClick={onChange}
-          checked={checkedValue === 'enabled'}
+          options={options}
         />
-        Enable
-        <input
-          type="radio"
-          name="smsNotifications"
-          value="disabled"
-          onClick={onChange}
-          checked={checkedValue === 'disabled'}
-        />
-        Disable
       </div>
     </div>
   );
 };
 
-export const MessagesSettings = ({ onChange, checkedValue }) => (
-  <p>
-    <label>Messages</label>
-    <small>Control who can send you messages.</small>
-    <div onClick={onChange} >
-      <input
-        type="radio"
-        name="receiveMessagesFrom"
-        value="everyone"
-        checked={checkedValue === 'everyone'}
-      />
-      Everyone
-      <input
-        type="radio"
-        name="receiveMessagesFrom"
-        value="peopleYouFollow"
-        checked={checkedValue === 'peopleYouFollow'}
-      />
-      People you follow
-      <input
-        type="radio"
-        name="receiveMessagesFrom"
-        value="noOne"
-        checked={checkedValue === 'noOne'}
-      />
-      <i className="fa fa-lock" /> No one
-    </div>
-  </p>
-);
+export const MessagesSettings = ({ onChange, checkedValue }) => {
+  const options = [
+    { text: 'Everyone', value: 'everyone' },
+    { text: 'People you follow', value: 'peopleYouFollow' },
+    { text: <span><i className="fa fa-lock" /> No one</span>, value: 'noOne' },
+  ];
 
-export const ProfileVisibilitySettings = ({ onChange, checkedValue }) => (
-  <p>
-    <label>Profile Visibility</label>
-    <small>Manage who can see your activity,
+  return (
+    <div>
+      <p className="bold section-label">Messages</p>
+      <p>
+        <small>Control who can send you messages.</small>
+      </p>
+      <div>
+        <RadioButton
+          onChange={onChange}
+          checkedValue={checkedValue}
+          name="receiveMessagesFrom"
+          options={options}
+        />
+      </div>
+    </div>
+  );
+};
+
+export const ProfileVisibilitySettings = ({ onChange, checkedValue }) => {
+  const options = [
+    { value: 'everyone', text: 'Everyone' },
+    { value: 'private', text: <span><i className="fa fa-lock" /> Private</span> },
+  ];
+  return (
+    <div>
+      <p className="bold section-label">Profile Visibility</p>
+      <p>
+        <small>Manage who can see your activity,
             things you fancy, your followers,
             people you follow or in anyone’s search results.
-    </small>
-    <div>
-      <input
-        type="radio"
-        name="profileVisibility"
-        value="everyone"
-        id="profileVisibilityEveryone"
-        onClick={onChange}
-        checked={checkedValue === 'everyone'}
-      />
-      Everyone
-      <input
-        type="radio"
-        name="profileVisibility"
-        value="private"
-        id="profileVisibilityPrivate"
-        onClick={onChange}
-        checked={checkedValue === 'private'}
-      />
-      <i className="fa fa-lock" /> Private
+        </small>
+      </p>
+      <div>
+        <RadioButton
+          onChange={onChange}
+          checkedValue={checkedValue}
+          name="profileVisibility"
+          options={options}
+        />
+      </div>
     </div>
-  </p>
-);
+  );
+};
 
 export const RecentlyViewedSettings = () => (
-  <p>
-    <label>Recently viewed</label>
-    <small>Manage your fancy Manage your Fancy browsing history.</small>
+  <div>
+    <p className="bold section-label">Recently viewed</p>
+    <p>
+      <small>
+        Manage your fancy Manage your Fancy browsing history.
+      </small>
+    </p>
     <p><a href="">Delete all items</a></p>
-  </p>
+  </div>
 );
 export default function Preferences({ preferences, handleSubmit, handleChange }) {
   return (
