@@ -8,14 +8,13 @@ import './Settings.css';
 export default class UserPreferences extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   componentDidMount() {
-    fetch('/api/preferences', { credentials: 'same-origin' })
+    fetch('/api/preferences', { credentials: 'include' })
       .then(res => res.json())
       .then(res => this.setState(res));
   }
@@ -24,8 +23,17 @@ export default class UserPreferences extends Component {
   // TODO: make a post request to the server
   // TODO: make button disabled if nothing changed
   handleSubmit(event) {
+    console.log(this.state);
     event.preventDefault();
-    console.log('submitted!');
+    fetch('/api/preferences', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(this.state),
+    });
   }
 
   handleChange(event) {
