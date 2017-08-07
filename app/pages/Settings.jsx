@@ -8,7 +8,9 @@ import './Settings.css';
 export default class UserPreferences extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { preferences: {
+      language: ''
+    } };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -16,14 +18,12 @@ export default class UserPreferences extends Component {
   componentDidMount() {
     fetch('/api/preferences', { credentials: 'include' })
       .then(res => res.json())
-      .then(res => this.setState(res));
+      .then(res => this.setState({ preferences: res.preferences }));
   }
 
 
-  // TODO: make a post request to the server
   // TODO: make button disabled if nothing changed
   handleSubmit(event) {
-    console.log(this.state);
     event.preventDefault();
     fetch('/api/preferences', {
       method: 'POST',
@@ -32,15 +32,17 @@ export default class UserPreferences extends Component {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-      body: JSON.stringify(this.state),
+      body: JSON.stringify({ preferences: this.state.preferences }),
     });
   }
 
   handleChange(event) {
+    const preferences = this.state.preferences;
     const target = event.target;
     const name = target.name;
     const value = target.value;
-    this.setState({ [name]: value });
+    preferences[name] = value;
+    this.setState({ preferences });
   }
 
   render() {
@@ -53,7 +55,7 @@ export default class UserPreferences extends Component {
             </div>
             <div className="column column-50 column-collapse">
               <Preferences
-                preferences={this.state}
+                preferences={this.state.preferences}
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}
               />

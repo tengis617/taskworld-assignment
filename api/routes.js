@@ -1,4 +1,4 @@
-import { UserPreference, DefaultPreference } from './models';
+import { User, DefaultPreferences } from './models';
 import createCookie from './cookie';
 
 const routes = [
@@ -16,23 +16,25 @@ const routes = [
       if (!cookie) {
         // create cookie and new preference from default
         cookie = createCookie();
-        const newPreference = DefaultPreference;
-        newPreference.userId = cookie.userId;
+        const newUser = {};
+        newUser.id = cookie.userId;
+        newUser.preferences = DefaultPreferences;
         // save it!
-        await new UserPreference(newPreference).save((err) => {
+        await new User(newUser).save((err) => {
           if (!err) {
             // return new preference
-            reply(newPreference).state('session', cookie).code(200);
+            reply(newUser).state('session', cookie).code(200);
           } else {
+            console.log(newUser);
             reply(err).code(500);
           }
         });
       } else {
-        const userPreference = await UserPreference.findOne({ userId: cookie.userId }, '-_id');
-        if (!userPreference) {
+        const user = await User.findOne({ id: cookie.userId }, '-_id');
+        if (!user) {
           reply('couldn not find user').code(401);
         } else {
-          await reply(userPreference).code(200);
+          await reply(user).code(200);
         }
       }
     },
@@ -42,17 +44,17 @@ const routes = [
     path: '/api/preferences',
     async handler(request, reply) {
       const cookie = request.state.session;
-      const newPreference = request.payload;
+      const newUserPreferences = request.payload.preferences;
       if (!cookie) {
         reply('unauthorized: no cookie ').code(401);
       } else {
-        const userPreference = await UserPreference.findOneAndUpdate(
-          { userId: cookie.userId },
-          newPreference,
+        const user = await User.findOneAndUpdate(
+          { id: cookie.userId },
+          { preferences: newUserPreferences },
           { new: true },
         );
-        if (userPreference) {
-          reply(userPreference).code(201);
+        if (user) {
+          reply(user).code(201);
         } else {
           reply('error: unable to find preference').code(400);
         }
@@ -65,9 +67,9 @@ const routes = [
     async handler(request, reply) {
       const cookie = request.state.session;
       if (!cookie) {
-        reply('unauthorized').code(401);
+        reply('error: unauthorized').code(401);
       } else {
-        await UserPreference.findOneAndRemove({ userId: cookie.userId }, (err) => {
+        await User.findOneAndRemove({ userId: cookie.userId }, (err) => {
           if (err) {
             reply(err).code(400);
           } else {
